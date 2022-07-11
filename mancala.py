@@ -1,4 +1,4 @@
-"""Манкала, , (c) Sayfullin Ruslan.
+"""Манкала, (c) Sayfullin Ruslan.
     Древняя игра в зерна
 """
 
@@ -41,7 +41,7 @@ def main():
     input('Press Enter to begin...')
 
     gameBoard = getNewBoard()
-    playerTurn = '1' # Сначала ходит игрок 1.
+    playerTurn = '1'    # Сначала ходит игрок 1.
 
     while True:     # Обрабатываем ход одного из игроков.
         # Очищаем экран, выводя множество символов новой строки,
@@ -57,11 +57,11 @@ def main():
         # Проверяем, не закончилась ли игра и не выиграл ли игрок:
         winner = checkForWinner(gameBoard)
         if winner == '1' or winner == '2':
-            displayBoard(gameBoard) # Отображаем доску последний раз.
+            displayBoard(gameBoard)  # Отображаем доску последний раз.
             print('Player ' + winner + ' has won!')
             sys.exit()
         elif winner == 'tie':
-            displayBoard(gameBoard) # Отображаем доску последний раз.
+            displayBoard(gameBoard)     # Отображаем доску последний раз.
             print('There is a tie!')
             sys.exit()
 
@@ -107,7 +107,7 @@ def askForPlayerMove(playerTurn, board):
     он хочет сеять зерна. Возвращаем метку выбранной лунки в верхнем
     регистре в виде строкового значения."""
 
-    while True: # Продолжаем спрашивать игрока, пока он не введет допустимый ход.
+    while True:  # Продолжаем спрашивать игрока, пока он не введет допустимый ход.
         # Просим игрока ввести лунку на его стороне:
         if playerTurn == '1':
             print('Player 1, choose move: A-F (or QUIT)')
@@ -137,15 +137,15 @@ def makeMove(board, playerTurn, pit):
     игроком 1 или 2 при его ходе лунки — источника засеиваемых зерен.
     Возвращает '1' or '2' в зависимости от того, чей ход следующий."""
 
-    seedsToSow = board[pit] # Получаем количество зерен в выбранной лунке.
-    board[pit] = 0 # Опустошаем выбранную лунку.
+    seedsToSow = board[pit]     # Получаем количество зерен в выбранной лунке.
+    board[pit] = 0   # Опустошаем выбранную лунку.
 
-    while seedsToSow > 0: # Сеем, пока зерна не закончатся.
-        pit = NEXT_PIT[pit] # Переходим к следующей лунке.
+    while seedsToSow > 0:   # Сеем, пока зерна не закончатся.
+        pit = NEXT_PIT[pit]     # Переходим к следующей лунке.
         if (playerTurn == '1' and pit == '2') or (
             playerTurn == '2' and pit == '1'
         ):
-            continue # Пропускаем амбар противника.
+            continue    # Пропускаем амбар противника.
         board[pit] += 1
         seedsToSow -= 1
 
@@ -186,7 +186,7 @@ def checkForWinner(board):
         # Игрок 2 получает все оставшиеся зерна на стороне противника:
         board['2'] += player2Total
         for pit in PLAYER_2_PITS:
-            board[pit] = 0 # Обнуляем все лунки.
+            board[pit] = 0  # Обнуляем все лунки.
     elif player2Total == 0:
         # Игрок 1 получает все оставшиеся зерна на стороне противника:
         board['1'] += player1Total
@@ -204,7 +204,7 @@ def checkForWinner(board):
         return 'tie'
 
 
-
 # Если программа не импортируется, а запускается, производим запуск:
 if __name__ == '__main__':
     main()
+
