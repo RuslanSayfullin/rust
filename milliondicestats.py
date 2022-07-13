@@ -12,7 +12,7 @@ numberOfDice = int(input('> '))
 # Подготовка ассоциативного массива для хранения результатов бросков костей:
 results = {}
 for i in range(numberOfDice, (numberOfDice * 6) + 1):
-results[i] = 0
+    results[i] = 0
 
 
 # Моделирование бросков костей:
