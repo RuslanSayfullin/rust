@@ -5,6 +5,7 @@
 import random, sys
 BLANK = ' '     # Обратите внимание: это строковое значение состоит из двух пробелов.
 
+
 def main():
     print('''Sliding Tile Puzzle, by Sayfullin Ruslan
     Use the WASD keys to move the tiles
