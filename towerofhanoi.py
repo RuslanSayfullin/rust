@@ -64,7 +64,7 @@ def askForPlayerMove(towers):
             return fromTower, toTower
         elif towers[toTower][-1] < towers[fromTower][-1]:
             print('Can\'t put larger disks on top of smaller ones.')
-            continue ab# Просим игрока ввести ход снова.
+            continue    # Просим игрока ввести ход снова.
         else:
             # Ход допустим, возвращаем выбранные башни:
             return fromTower, toTower
